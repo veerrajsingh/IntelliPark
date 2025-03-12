@@ -1,0 +1,1548 @@
+:root {
+    --primary-color: #01BF63;
+    --secondary-color: #6E9280;
+    --text-dark: #333333;
+    --background: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+}
+
+/* Parking Spaces */
+.status-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.stat-box {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+}
+.total { background: #e8f4f8; color: #3498db; }
+.occupied { background: #fde8e8; color: #e74c3c; }
+.free { background: #e8f6ef; color: #2ecc71; }
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.parking-spot {
+    background: white;
+    border: 2px solid #ecf0f1;
+    border-radius: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #34495e;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.parking-spot.occupied {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+.parking-spot.free {
+    border-color: #2ecc71;
+    background: #f7fefb;
+}
+.parking-spot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    color: #1e2220;
+}
+
+.nav-links a:hover {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.btn-login:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-register {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-register:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Hero Section Styles */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 5%;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.hero-content p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.hero-image img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Booking Section Styles */
+.booking-section {
+    padding: 2rem 5%;
+}
+
+.booking-container {
+    background: #01BF63;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.datetime-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.date-picker, 
+.time-picker,
+.location-select {
+    padding: 12px 16px;
+    border-radius: 15px;
+    border: 1px solid rgba(1, 191, 99, 0.3);
+    background: white;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.btn-search {
+    align-self: flex-end;
+    width: 100%;
+    height: 45px;
+    background: white;
+    color: #01BF63;
+    /* color: #01BF63; */
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.location-selectors {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.select-wrapper {
+    flex: 1;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--primary-color);
+    pointer-events: none;
+}
+
+.location-select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(1, 191, 99, 0.3);
+    background: white;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none;
+}
+
+.location-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(1, 191, 99, 0.1);
+}
+
+.location-select option {
+    padding: 12px;
+}
+.datetime-input {
+    display: flex;
+    gap: 1rem;
+}
+
+.date-picker, .time-picker {
+    padding: 0.5rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.btn-search {
+    background: white;
+    color: #01BF63;;
+    border: none;
+    padding: 0.75rem 2rem;
+}
+
+/* Footer Styles */
+.footer {
+    background: white;
+    padding: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    border-top: 1.5px solid #101011e6;
+}
+
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-brand img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    line-height: 2;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1.5px solid #101011e6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .booking-form {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+} 
+
+/* About Page Styles */
+.about-container {
+    background-color: #00D67D;
+    min-height: 100vh;
+    padding: 2rem;
+    color: white;
+}
+
+.hero-section {
+    background-color: #ffffff;
+    padding: 4rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.steering-wheels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.wheel {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.center-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    padding: 0 2rem;
+}
+
+/* Style for the light wheels behind text */
+#light-wheel {
+    position: absolute;
+    width: 150px; /* Slightly larger for better visibility behind text */
+    height: 150px;
+    z-index: 1;
+}
+
+/* Position the left light wheel */
+#light-wheel:nth-of-type(3) {
+    left: 50%;
+    transform: translateX(-150%) translateY(-50%);
+    top: 50%;
+}
+
+/* Position the right light wheel */
+#light-wheel:nth-of-type(4) {
+    left: 50%;
+    transform: translateX(50%) translateY(-50%);
+    top: 50%;
+}
+
+.center-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #01BF63;
+    position: relative;
+    z-index: 3;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #01BF63;
+    position: relative;
+    z-index: 3;
+}
+
+.about-description, .mission {
+    background-color: #01BF63;
+    padding: 5rem 2rem;
+    color: white;
+}
+
+.content-box {
+    background: #07DD76;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.content-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+/* Remove space between sections while keeping box styling */
+.mission {
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.about-description {
+    padding-bottom: 1.5rem;
+}
+
+/* Adjust spacing between wheels */
+.steering-wheels img:not(:last-child) {
+    margin-right: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wheel {
+        width: 100px;
+        height: 100px;
+    }
+
+    .center-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-description, .mission {
+        padding: 1.5rem;
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel {
+        width: 70px;
+        height: 70px;
+    }
+
+    .center-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+}
+
+/* Contact Form Styles */
+.contact-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+}
+
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 214, 125, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form .form-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-form label {
+    color: white;
+    font-weight: 600;
+    min-width: 180px;
+    text-align: right;
+}
+
+.contact-form input,
+.contact-form textarea {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: white;
+    color: #01BF63;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #01BF63;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .contact-form label {
+        text-align: left;
+    }
+
+    .contact-form-container {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Login Page Styles */
+.login-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+}
+
+.login-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(0, 214, 125, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.login-form-container h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.login-subtitle {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-form .form-group {
+    text-align: left;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.login-btn {
+    background: #01BF63;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #00a857;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-link {
+    color: white;
+    margin-top: 1rem;
+}
+
+.signup-link a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-form-container {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .login-form-container h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Sign Up Page Styles */
+.signup-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+}
+
+.signup-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(0, 214, 125, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.signup-form-container h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.signup-subtitle {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-label {
+    color: white;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: -0.5rem;
+}
+
+.name-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.name-group .form-group {
+    flex: 1;
+}
+
+.signup-form .form-group {
+    text-align: left;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.signup-btn {
+    background: #01BF63;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background: #00a857;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-link {
+    color: white;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.login-link p {
+    margin: 0.5rem 0;
+}
+
+.login-link a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .signup-form-container {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .signup-form-container h2 {
+        font-size: 2rem;
+    }
+
+    .name-group {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/* Profile Page Styles */
+.profile-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 70vh;
+}
+
+.profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.profile-title {
+    color: #01BF63;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.profile-content {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Sidebar Styles */
+.profile-sidebar {
+    width: 220px;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 1.5rem;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    color: #01BF63;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-item i {
+    font-size: 1.2rem;
+}
+
+.sidebar-item.active {
+    color: #01BF63;
+    font-weight: 600;
+}
+
+.sidebar-item:hover {
+    transform: translateX(5px);
+}
+
+/* Main Profile Content Styles */
+.profile-main {
+    flex: 1;
+}
+
+.profile-form-section {
+    margin-bottom: 2rem;
+}
+
+.name-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.name-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.profile-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #01BF63;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e6fff2;
+}
+
+.save-btn {
+    background: #01BF63;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+    margin-top: 1rem;
+}
+
+.save-btn:hover {
+    background: #00a857;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Password Section Styles */
+.password-section {
+    margin-bottom: 2rem;
+}
+
+.password-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.password-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.password-form .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Vehicles Section Styles */
+.vehicles-section {
+    margin-bottom: 2rem;
+}
+
+.vehicles-section h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.vehicle-subtitle {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.vehicle-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.vehicle-btn {
+    background: white;
+    color: #01BF63;
+    border: 1px solid #01BF63;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vehicle-btn:hover, .vehicle-btn.active {
+    background: #01BF63;
+    color: white;
+}
+
+.vehicle-input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.vehicle-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #01BF63;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.vehicle-dropdown-wrapper {
+    position: relative;
+    width: 100px;
+}
+
+.vehicle-dropdown {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #01BF63;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+}
+
+.vehicle-dropdown-wrapper::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #01BF63;
+    pointer-events: none;
+}
+
+.add-vehicle-btn {
+    background: #01BF63;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-vehicle-btn:hover {
+    background: #00a857;
+    transform: scale(1.05);
+}
+
+/* Responsive Design for Profile Page */
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding-right: 0;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .name-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .password-form {
+        flex-direction: column;
+    }
+    
+    .vehicle-input-group {
+        flex-wrap: wrap;
+    }
+    
+    .vehicle-dropdown-wrapper {
+        width: 100%;
+    }
+}
+
+/* Bookings Page Styles */
+.bookings-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 70vh;
+}
+
+.bookings-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.bookings-title {
+    color: #01BF63;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.bookings-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.bookings-main {
+    flex: 1;
+}
+
+.bookings-section-container {
+    margin-bottom: 2rem;
+}
+
+.bookings-section-title {
+    color: #01BF63;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.booking-card {
+    background-color: #ffffff;
+    border: 2px solid #01BF63;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.vehicle-number {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #01BF63;
+}
+
+.location-tag {
+    background-color: #01BF63;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.booking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.booking-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-label {
+    color: #01BF63;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.detail-time {
+    margin-left: 0.5rem;
+}
+
+.fare {
+    font-weight: 600;
+}
+
+.bookings-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+.past-bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.pagination-dot.active {
+    background-color: #01BF63;
+}
+
+/* Responsive Design for Bookings Page */
+@media (max-width: 768px) {
+    .bookings-content {
+        flex-direction: column;
+    }
+    
+    .past-bookings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Parking Search Page Styles */
+.booking-summary {
+    padding: 1.5rem;
+}
+
+.booking-form-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.summary-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.summary-selectors {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.summary-select {
+    background-color: white;
+    color: #01BF63;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+}
+
+.summary-datetime {
+    background-color: white;
+    color: #01BF63;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Parking Complex Section */
+.parking-complex-section {
+    background-color: white;
+    padding: 3rem 1.5rem;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #01BF63;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.parking-complex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.parking-complex-card {
+    border: 2px solid #01BF63;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.parking-complex-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.complex-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.complex-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.complex-details {
+    padding: 1rem;
+}
+
+.complex-name {
+    color: #01BF63;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.complex-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.complex-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.distance {
+    color: #666;
+}
+
+.separator {
+    color: #ccc;
+}
+
+.availability {
+    font-weight: 500;
+}
+
+.availability.available {
+    color: #01BF63;
+}
+
+.availability.booked {
+    color: #ff3b30;
+}
+
+.btn-proceed {
+    background-color: #01BF63;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+.btn-proceed:hover {
+    background-color: #00a857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Parking Plot Section */
+.parking-plot-section {
+    background-color: #f9f9f9;
+    padding: 3rem 1.5rem;
+}
+
+.availability-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.legend-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.legend-indicator.available {
+    background-color: #01BF63;
+}
+
+.legend-indicator.booked {
+    background-color: #ff3b30;
+}
+
+.plot-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.plot-section-title {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.plot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.plot-btn {
+    background-color: #01BF63;
+    color: white;
+    border: none;
+    padding: 0.8rem 0.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plot-btn:hover:not(.booked) {
+    background-color: #00a857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plot-btn.booked {
+    background-color: #ff3b30;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Responsive Design for Parking Search Page */
+@media (max-width: 768px) {
+    .booking-form-summary {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .summary-group {
+        width: 100%;
+    }
+    
+    .parking-complex-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .plot-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
+
+/* 404 Error Page Styles */
+.error-section {
+    background-color: #01BF63;
+    padding: 4rem 2rem;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #00d67d;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.error-code {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.error-message h1 {
+    color: white;
+    font-size: 3rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .error-message h1 {
+        font-size: 2rem;
+    }
+}
